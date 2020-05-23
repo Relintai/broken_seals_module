@@ -1,7 +1,4 @@
-#include "register_types.h"
-
 /*
-
 Copyright (c) 2020 Péter Magyar
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -21,14 +18,26 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
 */
 
-#include "biome_base.h"
+#ifndef BIOME_BASE_H
+#define BIOME_BASE_H
 
-void register_broken_seals_module_types() {
-	ClassDB::register_class<BiomeBase>();
-}
+#include "../world_generator/main/biome.h"
 
-void unregister_broken_seals_module_types() {
-}
+class VoxelChunk;
+
+class BiomeBase : public Biome {
+	GDCLASS(BiomeBase, Biome);
+
+public:
+	void generate_simple_terrarin(Ref<VoxelChunk> chunk, bool spawn_mobs);
+
+	BiomeBase();
+	~BiomeBase();
+
+protected:
+	static void _bind_methods();
+};
+
+#endif

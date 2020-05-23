@@ -11,6 +11,8 @@ module_env = env.Clone()
 sources = [
 
     "register_types.cpp",
+
+    "biome_base.cpp"
 ]
 
 if ARGUMENTS.get('custom_modules_shared', 'no') == 'yes':
