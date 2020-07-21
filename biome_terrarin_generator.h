@@ -20,24 +20,30 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-#ifndef BIOME_BASE_H
-#define BIOME_BASE_H
+#ifndef BIOME_TERRARIN_GENERATOR_H
+#define BIOME_TERRARIN_GENERATOR_H
 
-#include "../world_generator/main/biome.h"
+#include "core/reference.h"
 
 class VoxelChunk;
 
-class BiomeBase : public Biome {
-	GDCLASS(BiomeBase, Biome);
+class BiomeTerrarinGenerator : public Reference {
+	GDCLASS(BiomeTerrarinGenerator, Reference);
 
 public:
+	int get_current_seed();
+	void set_current_seed(int value);
+
 	void generate_simple_terrarin(Ref<VoxelChunk> chunk, bool spawn_mobs);
 
-	BiomeBase();
-	~BiomeBase();
+	BiomeTerrarinGenerator();
+	~BiomeTerrarinGenerator();
 
 protected:
 	static void _bind_methods();
+
+private:
+	int _current_seed;
 };
 
 #endif

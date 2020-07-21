@@ -24,10 +24,10 @@ SOFTWARE.
 
 */
 
-#include "biome_base.h"
+#include "biome_terrarin_generator.h"
 
 void register_broken_seals_module_types() {
-	ClassDB::register_class<BiomeBase>();
+	ClassDB::register_class<BiomeTerrarinGenerator>();
 }
 
 void unregister_broken_seals_module_types() {

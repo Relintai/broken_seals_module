@@ -32,7 +32,7 @@ def configure(env):
 
 def get_doc_classes():
     return [
-      "BiomeBase"
+      "BiomeTerrarinGenerator"
     ]
 
 def get_doc_path():
