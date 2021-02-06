@@ -23,7 +23,13 @@ SOFTWARE.
 #ifndef BIOME_TERRARIN_GENERATOR_H
 #define BIOME_TERRARIN_GENERATOR_H
 
+#include "core/version.h"
+
+#if VERSION_MAJOR > 3
+#include "core/object/reference.h"
+#else
 #include "core/reference.h"
+#endif
 
 class VoxelChunk;
 

@@ -22,9 +22,15 @@ SOFTWARE.
 
 #include "biome_terrarin_generator.h"
 
-#include "core/math/math_funcs.h"
+#include "core/version.h"
 
+#if VERSION_MAJOR > 3
+#include "core/config/engine.h"
+#else
 #include "core/engine.h"
+#endif
+
+#include "core/math/math_funcs.h"
 
 #include "../voxelman/world/default/voxel_chunk_default.h"
 #include "../voxelman/world/voxel_chunk.h"
