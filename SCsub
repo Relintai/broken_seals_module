@@ -4,9 +4,11 @@ Import('env')
 
 module_env = env.Clone()
 
-#Should work with just arrays
-#if os.path.isdir('../mesh_data_resource'):
-#    module_env.Append(CPPDEFINES=['MESH_DATA_RESOURCE_PRESENT'])
+if os.path.isdir('../voxelman'):
+    module_env.Append(CPPDEFINES=['VOXELMAN_PRESENT'])
+
+if os.path.isdir('../terraman'):
+    module_env.Append(CPPDEFINES=['TERRAMAN_PRESENT'])
 
 sources = [
 

@@ -32,8 +32,10 @@ SOFTWARE.
 
 #include "core/math/math_funcs.h"
 
+#ifdef VOXELMAN_PRESENT
 #include "../voxelman/world/default/voxel_chunk_default.h"
 #include "../voxelman/world/voxel_chunk.h"
+#endif
 
 #include "../entity_spell_system/singletons/ess.h"
 #include "../entity_spell_system/spawners/ess_entity_spawner.h"
@@ -46,6 +48,7 @@ void BiomeTerrarinGenerator::set_current_seed(int value) {
 	_current_seed = value;
 }
 
+#ifdef VOXELMAN_PRESENT
 void BiomeTerrarinGenerator::generate_simple_terrarin(Ref<VoxelChunk> chunk, bool spawn_mobs) {
 	Ref<OpenSimplexNoise> noise;
 	noise.instance();
@@ -118,6 +121,7 @@ void BiomeTerrarinGenerator::generate_simple_terrarin(Ref<VoxelChunk> chunk, boo
 	//		ESS::get_singleton()->get_entity_spawner()->call("spawn_mob", 0, Math::rand() % 3, v);
 	//	}
 }
+#endif
 
 BiomeTerrarinGenerator::BiomeTerrarinGenerator() {
 	_current_seed = 0;
@@ -131,5 +135,7 @@ void BiomeTerrarinGenerator::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("set_current_seed", "value"), &BiomeTerrarinGenerator::set_current_seed);
 	ADD_PROPERTY(PropertyInfo(Variant::INT, "current_seed"), "set_current_seed", "get_current_seed");
 
+#ifdef VOXELMAN_PRESENT
 	ClassDB::bind_method(D_METHOD("generate_simple_terrarin", "chunk", "spawn_mobs"), &BiomeTerrarinGenerator::generate_simple_terrarin);
+#endif
 }

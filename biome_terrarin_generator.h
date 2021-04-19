@@ -31,7 +31,9 @@ SOFTWARE.
 #include "core/reference.h"
 #endif
 
+#ifdef VOXELMAN_PRESENT
 class VoxelChunk;
+#endif
 
 class BiomeTerrarinGenerator : public Reference {
 	GDCLASS(BiomeTerrarinGenerator, Reference);
@@ -40,7 +42,9 @@ public:
 	int get_current_seed();
 	void set_current_seed(int value);
 
+#ifdef VOXELMAN_PRESENT
 	void generate_simple_terrarin(Ref<VoxelChunk> chunk, bool spawn_mobs);
+#endif
 
 	BiomeTerrarinGenerator();
 	~BiomeTerrarinGenerator();
