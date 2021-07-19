@@ -25,9 +25,11 @@ SOFTWARE.
 */
 
 #include "biome_terrarin_generator.h"
+#include "t_mesh_instance.h"
 
 void register_broken_seals_module_types() {
 	ClassDB::register_class<BiomeTerrarinGenerator>();
+	ClassDB::register_class<TMeshInstance>();
 }
 
 void unregister_broken_seals_module_types() {
